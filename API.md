@@ -19,6 +19,8 @@ Authorization: Bearer {your-token-here}
 - [Loads](#loads)
     - [list](#list-loads)
     - [accept](#accept-a-load)
+- [Statuses](#statuses)
+    - [create](#create-a-status)
 
 ### Trading Partners
 Trading partners are the companies you do business with.  When you create a trading partner it will start in "pending" status while BitFreighter builds the agreement between your business and the partner.  Once that is complete, the status will change to "active".
@@ -108,4 +110,22 @@ PATCH https://api.bitfreighter.com/loads/999
 ##### Response
 ```
 STATUS: 202
+```
+### Statuses
+Status updates are used to provide information about a load being shipped. 
+#### Create a Status
+Creating a new status for a load will send a 214 EDI message (or equivalent) to the trading partner to provide information about the load being shipped.
+##### Request
+```
+POST https://api.bitfreighter.com/loads/999/statuses
+{
+  // TODO flesh out these fields
+}
+```
+##### Response
+```
+STATUS: 201
+{
+  "id": 123
+}
 ```
