@@ -18,6 +18,7 @@ Authorization: Bearer {your-token-here}
     - [create](#create-a-trading-partner)
 - [Load Tenders](#load-tenders)
     - [list](#list-load-tenders)
+    - [accept](#accept-a-load-tender)
 
 ### Trading Partners
 Trading partners are the companies you do business with.  When you create a trading partner it will start in "pending" status while BitFreighter builds the agreement between your business and the partner.  Once that is complete, the status will change to "active".
@@ -35,7 +36,8 @@ Trading partners are the companies you do business with.  When you create a trad
 GET https://api.bitfreighter.com/partners
 ```
 ##### Response
-```json
+```
+STATUS: 200
 {
   "data": [
     { 
@@ -57,7 +59,8 @@ BODY
 }
 ```
 ##### Response
-```json
+```
+STATUS: 201
 {
   "data": {
     "name": "My Trading Partner"
@@ -75,11 +78,13 @@ Load tenders are analogous to the 204 EDI Carrier Load Tender. They are used by 
 | TODO | TODO | TODO: need to flesh out the rest of these fields |
 
 #### List Load Tenders
+##### Request
 ```
 GET https://api.bitfreighter.com/load-tenders
 ```
 ##### Response
-```json
+```
+STATUS: 200
 {
   "data": [
     { 
@@ -90,4 +95,17 @@ GET https://api.bitfreighter.com/load-tenders
     ...
   ]
 }
+```
+#### Accept a Load Tender
+Available loads may be accepted.  BitFreighter will send a 990 EDI (or equivalent) message to the trading partner to communicate the acceptance of this load.
+##### Request
+```
+PATCH https://api.bitfreighter.com/load-tenders/999
+{
+  "status": "accepted"
+}
+```
+##### Response
+```
+STATUS: 202
 ```
