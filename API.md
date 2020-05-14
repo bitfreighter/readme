@@ -15,14 +15,14 @@ Authorization: Bearer {your-token-here}
 ## Resources
 
 ### Trading Partners
-Trading partners are the companies you do business with.  
+Trading partners are the companies you do business with.  When you create a trading partner it will start in "pending" status while BitFreighter builds the agreement between your business and the partner.  Once that is complete, the status will change to "active".
 
 #### Fields
 | Field  | Type | Description |
 | ------------- | ------------- | ------------- |
 | id  | integer | uniquely identifies your trading partner  |
 | name  | string | display name for your trading partner |
-| status | string | (pending/active) A trading partner starts in pending status while BitFreighter builds out the agreement with your partner |
+| status | string | (pending/active) |
 
 #### List Trading Partners
 ##### Request
@@ -39,5 +39,22 @@ GET https://api.bitfreighter.com/partners
       "status": "active"
     }
   ]
+}
+```
+#### Create a Trading Partner
+##### Request
+```
+POST https://api.bitfreighter.com/partners
+BODY
+{
+  "name": "My Trading Partner"
+}
+```
+##### Response
+```json
+{
+  "data": {
+    "name": "My Trading Partner"
+  }
 }
 ```
