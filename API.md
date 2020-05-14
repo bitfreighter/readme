@@ -13,6 +13,10 @@ Authorization: Bearer {your-token-here}
 ```
 
 ## Resources
+- [Trading Partners](#trading-partners)
+    - [list](#list-trading-partners)
+    - [create](#create-a-trading-partner)
+- [Load Tenders](#load-tenders)
 
 ### Trading Partners
 Trading partners are the companies you do business with.  When you create a trading partner it will start in "pending" status while BitFreighter builds the agreement between your business and the partner.  Once that is complete, the status will change to "active".
@@ -58,3 +62,12 @@ BODY
   }
 }
 ```
+### Load Tenders
+Load tenders are analogous to the 204 EDI Carrier Load Tender. They are used by shippers to communicate interest in having goods shipped.
+
+#### Fields
+| Field | Type | Description |
+| --- | --- | --- |
+| id | unique identifier | The BitFreighter identifier for the load |
+| status | string | (available, accepted, rejected) |
+| TODO | TODO | TODO: need to flesh out the rest of these fields |
